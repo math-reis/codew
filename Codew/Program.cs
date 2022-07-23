@@ -2,12 +2,44 @@
 {
     static void Main(string[] args)
     {
-        DuplicateCount("Indivisibilities");
-        //AddBinary(3, 7);
+        long lalala = DigPow(46288, 3);
+
+        Console.WriteLine(lalala);
     }
 
     #region 6 kyu
     //Playing with digits: https://www.codewars.com/kata/5552101f47fc5178b1000050
+    public static long DigPow(int n, int p)
+    {
+        double result = 0;
+
+        int x = 0; int y = 1;
+
+        string number = n.ToString();
+        
+        while (y < n.ToString().Length + 1)
+        {
+            int sub = Convert.ToInt32(number.Substring(x, 1));
+
+            double sum = 1;
+
+            for (int i = 0; i < p; i++)
+            {
+                sum *= sub;               
+            }
+
+            result += sum;
+
+            p++; x++; y++;
+        }
+
+        if (result % n == 0)
+        {
+            return Convert.ToInt32(result / n);
+        }
+
+        return -1;
+    }
 
     //Counting Duplicates: https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
     public static int DuplicateCount(string str)
@@ -29,21 +61,32 @@
 
         return duplicate;
     }
-
     #endregion
 
     #region 7 kyu
     //Binary Addition: https://www.codewars.com/kata/551f37452ff852b7bd000139
-    public static string AddBinary(int a, int b)
-    {
-        double sum = a + b;
-        string binary = "";
+    //public static string AddBinary(int a, int b)
+    //{
+    //    double sum = a + b;
+    //    string binary = "";
 
-        return binary;
-    }
+    //    return binary;
+    //}
     #endregion
 
     #region 8 kyu
+    //Opposite number: https://www.codewars.com/kata/56dec885c54a926dcd001095
+    public static int Opposite(int number)
+    {
+        return number > 0 ? number - (-2 * number) : number + (2 * number);
+    }
+
+    //DNA to RNA Conversion: https://www.codewars.com/kata/5556282156230d0e5e000089
+    public static string DnaToRna(string dna)
+    {
+        return dna.Replace('T', 'U');
+    }
+
     //Sum Arrays: https://www.codewars.com/kata/53dc54212259ed3d4f00071c
     public static double SumArray(double[] array)
     {
@@ -132,7 +175,7 @@
     }
 
     //Multiply: https://www.codewars.com/kata/50654ddff44f800200000004
-    public static int multiply(int a, int b)
+    public static int Multiply(int a, int b)
     {
         return a * b;
     }
