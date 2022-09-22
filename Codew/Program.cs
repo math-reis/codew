@@ -2,10 +2,27 @@
 {
     static void Main(string[] args)
     {
-
+        int resposta = MultipleThreeOrFive(10);
     }
 
     #region 6 kyu
+    // Multiples of 3 or 5: https://www.codewars.com/kata/514b92a657cdc65150000006
+    public static int MultipleThreeOrFive(int value)
+    {
+        if (value < 0) return 0;
+
+        int total = 0; value--;
+
+        while (value > 0)
+        {
+            if (value % 3 == 0 || value % 5 == 0) total += value;
+
+            value--;
+        }
+
+        return total;
+    }
+
     // Playing with digits: https://www.codewars.com/kata/5552101f47fc5178b1000050
     public static long DigPow(int n, int p)
     {
