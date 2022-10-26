@@ -2,8 +2,23 @@
 {
     static void Main(string[] args)
     {
-        int resposta = MultipleThreeOrFive(10);
+
     }
+
+    #region 5 kyu
+    // Simple Pig Latin: https://www.codewars.com/kata/520b9d2ad5c005041100000f
+    public static string PigIt(string str)
+    {
+        string result = "";
+
+        foreach (string word in str.Split(' '))
+        {
+            result = (word != "!") ? (result + word.Insert(word.Length, word.Substring(0, 1) + "ay ").Remove(0, 1)) : (result + word);
+        }
+        
+        return result.Contains('!') ? result : result.Remove(result.Length - 1, 1);
+    }
+    #endregion
 
     #region 6 kyu
     // Multiples of 3 or 5: https://www.codewars.com/kata/514b92a657cdc65150000006
